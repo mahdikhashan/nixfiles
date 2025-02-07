@@ -1,9 +1,10 @@
 { nixpkgs }:
 
-with nixpkgs.legacyPackages.x86_64-darwin;
-
-mkShell {
-  buildInputs = [
+let
+  pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+in
+pkgs.mkShell {
+  buildInputs = with pkgs; [
     python311
   ];
 

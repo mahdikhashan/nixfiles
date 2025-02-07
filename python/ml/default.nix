@@ -1,15 +1,18 @@
 { nixpkgs }:
 
-with nixpkgs.legacyPackages.x86_64-darwin;
-
-mkShell {
-  buildInputs = [
+let
+  pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+in
+pkgs.mkShell {
+  buildInputs = with pkgs; [
     python311
-    python311Packages.numpy
-    python311Packages.matplotlib
-    python311Packages.pandas
-    python311Packages.scipy
-    python311Packages.jupyter
+    (python311.withPackages (ps: with ps; [
+      numpy
+      matplotlib
+      pandas
+      scipy
+      jupyter
+    ]))
   ];
 
   shellHook = ''
