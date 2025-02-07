@@ -8,6 +8,19 @@ cd ./nixfiles
 export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
 
+```bash
+pip install pre-commit
+pre-commit install
+
+nix-env -iA nixpkgs.nixfmt
+```
+
+then before each commit:
+
+```bash
+pre-commit run --all-files
+```
+
 ### Run
 ```bash
 nix develop .
