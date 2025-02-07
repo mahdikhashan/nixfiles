@@ -36,7 +36,7 @@ nix develop .
           pytorch
         ]);
         shellHook = oldAttrs.shellHook + ''
-          echo "🧠ML environment activated!"
+          echo "🧠 ML environment activated!"
         '';
       });
   };
