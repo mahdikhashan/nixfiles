@@ -10,7 +10,7 @@ in pkgs.mkShell {
     export CFLAGS="-I/opt/homebrew/opt/llvm/include"
     export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 
-    echo `env is set up! let's install atheris...`
+    echo 'env is set up! let's install atheris...'
     pip install atheris
 
     python -c "import atheris; print('Atheris installed successfully!')"
